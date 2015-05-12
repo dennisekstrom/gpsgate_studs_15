@@ -34,8 +34,17 @@ form{
 	color: #F08080;
 }
 
-.span5{
+.row-fluid{
 
 	padding-left: 10px;
+	padding-top: 20px;
+
+}
+
+#googleMap{
+	background-color:#FFFFFF;
+	padding-top: 20px;
+
+
 
 }
