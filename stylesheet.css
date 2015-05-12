@@ -33,3 +33,18 @@ form{
 	font-size: 20px;
 	color: #F08080;
 }
+
+.row-fluid{
+
+	padding-left: 10px;
+	padding-top: 20px;
+
+}
+
+#googleMap{
+	background-color:#FFFFFF;
+	padding-top: 20px;
+
+
+
+}
