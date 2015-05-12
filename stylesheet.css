@@ -44,7 +44,9 @@ form{
 #googleMap{
 	background-color:#FFFFFF;
 	padding-top: 20px;
-
+	border-style: solid;
+	border-width: 2px;
+	border-color: #000000;
 
 
 }
