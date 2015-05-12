@@ -12,6 +12,8 @@
 
     <script type="text/javascript" src="gpsgate.js"></script>
     <script type="text/javascript" src="http://studs.gpsgate.com/Services/Core.ashx?xss2=true&deps=true"></script>
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+
     <script>
         goog.require('GpsGate.Server'); 
         goog.require('jQuery'); 
@@ -28,9 +30,10 @@
    </script>
   </head>
   <body>
-	<div class="container">
-		<h1>Finding Friends International</h1>
+	<div class="row-fluid">
 	
+		<div class="span5">
+			<h1>Finding Friends International</h1>
 		<form>
 			Name:<br> <input type="text" size="51"><br>
 			<br>
@@ -38,7 +41,10 @@
 		</form>	
 
 		<button id="submitButton" class="btn" type="button">Report Position</button>
+	</div>
 
+	<div class ="span6">
+		<div id="googleMap" style="width:200px;height:380px;"></div>
 	</div>
 
     <!-- jQuery -->
