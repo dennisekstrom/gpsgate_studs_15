@@ -3,7 +3,7 @@ body{
 }
 
 h1{
-	color: #F08080;
+	color:#EE7942;
 	font-family:  "Trebuchet MS", Helvetica, sans-serif;
 	font-size: 40px; 
 }
@@ -31,7 +31,29 @@ form{
 	border-color: #000000;
 
 	font-size: 20px;
-	color: #F08080;
+	color:#EE7942;
+}
+
+#swagButton{
+	background-color:#DEDEDE;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #000000;
+
+	font-size: 20px;
+	color: #EE30A7;
+
+}
+
+#sadButton{
+	background-color:#DEDEDE;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #000000;
+
+	font-size: 20px;
+	color: #8B4C39;
+
 }
 
 .row-fluid{
