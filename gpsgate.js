@@ -1,6 +1,7 @@
 var TAG = 'op6tag';
 var PASSWORD = 'pass';
 var MAP;
+var STATUS = 'unk';
 
 function start() {
 
@@ -8,19 +9,28 @@ function start() {
 
     getUsersInTag(TAG);
 
+    $('#swagButton').click(function() {
+        STATUS = 'swa';
+    });
+
+    $('#sadButton').click(function() {
+        STATUS = 'sad';
+    });
+
     $('#submitButton').click(function() {
-        reportPosition($('#name').val(), $('#message').val(), TAG);
+        var msg = STATUS + ':' + $('#message').val();
+        reportPosition($('#name').val(), msg, TAG);
     });
 }
 
 function reportPosition(strUsername, strMessage, strTag) {
 
-    console.log(strUsername);
-    console.log(strMessage);
+    // console.log(strUsername);
+    // console.log(strMessage);
 
     navigator.geolocation.getCurrentPosition(function(pos) {
 
-        console.log('Coords: ' + pos.coords.longitude + ', ' + pos.coords.longitude);
+        // console.log('Coords: ' + pos.coords.longitude + ', ' + pos.coords.longitude);
 
         return GpsGate.Server.Hackathon.ReportPosition(strUsername, 
                                                        PASSWORD, 
@@ -30,7 +40,7 @@ function reportPosition(strUsername, strMessage, strTag) {
                                                        pos.coords.latitude).addCallbacks(
             function(result) {
                 // Do something with the result
-                console.log(result);
+                // console.log(result);
             },
             function(err) {
                 // An error occured
@@ -43,18 +53,42 @@ function reportPosition(strUsername, strMessage, strTag) {
 }
 
 function addUserMarkers(users) {
-    console.log('apa');
-    for (user in users) {
+    $.each(users, function(i, user) {
+
+        var spl = user.message.split(':', 1);
+        var sta = spl[0];
+        var msg = spl[1];
+
+        var icon;
+        switch (sta) {
+            case "swa":
+                icon = 'swag1.png';
+                break;
+            case "sad":
+                icon = 'swag2.png';
+                break;
+            default:
+                icon = 'question.png';
+                break;
+        }
+
         var marker = new google.maps.Marker({
             position: new google.maps.LatLng(user.position.lat, user.position.lng),
-            title:users.username
+            // title:user.username,
+            icon: icon
         });
 
         // To add the marker to the map, call setMap();
         marker.setMap(MAP);
 
-        console.log(marker);
-    }
+        var infowindow = new google.maps.InfoWindow({
+            content: "<span>" + user.username + "</span>"
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.open(MAP, marker);
+        });
+    });
 }
 
 function getUsersInTag(tag) {               
@@ -62,7 +96,7 @@ function getUsersInTag(tag) {
         function(result) {
             // Do something with the result
             console.log(result);
-            addUserMarkers(results);
+            addUserMarkers(result);
         },
         function(err) {
             // An error occured
