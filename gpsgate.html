@@ -25,8 +25,13 @@
         // other services
    </script>
     
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
    <script type="text/javascript">
-        jQuery(document).ready(reportPosition('Name1', 'Message1'));
+        jQuery(document).ready(start);
    </script>
   </head>
   <body>
@@ -35,9 +40,13 @@
 		
 			<h1>Finding Friends International</h1>
 		<form>
+<<<<<<< HEAD
+			Name:<br> <input id="name" type="text" size="50"><br>
+=======
 			Name:<br> <input type="text" size="51"><br>
+>>>>>>> d75ebba67afbe8c0fa7365debc0f49b5bdc7c0a4
 			<br>
-			Message:<br> <textarea cols="50" rows="4" name="Messsage"></textarea><br>
+			Message:<br> <textarea id="message" cols="50" rows="4" name="Message"></textarea><br>
 		</form>	
 
 		<button id="submitButton" class="btn" type="button">Report Position</button>
@@ -46,16 +55,5 @@
 	<div class="row-fluid">
 		<div id="googleMap" style="width:480px;height:380px;"></div>
 	</div>
-
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-
-	<!-- The application JavaScript code -->
-	<script src="gpsgate.js"></script>
-
-
   </body>
-
 </html>
