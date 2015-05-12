@@ -10,7 +10,22 @@
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
 
-
+    <script type="text/javascript" src="gpsgate.js"></script>
+    <script type="text/javascript" src="http://studs.gpsgate.com/Services/Core.ashx?xss2=true&deps=true"></script>
+    <script>
+        goog.require('GpsGate.Server'); 
+        goog.require('jQuery'); 
+        // jQuery etc...
+   </script>
+   
+   <script>
+        GpsGate.require('GpsGate.Server.Hackathon');
+        // other services
+   </script>
+    
+   <script type="text/javascript">
+        jQuery(document).ready(reportPosition('Name1', 'Message1'));
+   </script>
   </head>
   <body>
 	<div class="container">
